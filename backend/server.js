@@ -21,6 +21,11 @@ app.get("/notes", async (req, res) => {
   res.json(notes);
 });
 
+// GET 
+app.get("/", (req, res) => {
+  res.send("Sticky Notes API is running 🚀");
+});
+
 // ADD note
 app.post("/notes", async (req, res) => {
   const note = new Note(req.body);
