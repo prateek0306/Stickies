@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Note = require("./models/Note");
+require("dotenv").config();
 
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // 🔗 PUT YOUR MONGODB ATLAS URL HERE
-mongoose.connect("mongodb+srv://kingo:root@cluster0.lpq4vgm.mongodb.net/?appName=Cluster0&retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URI)
 
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
